@@ -1,0 +1,58 @@
+// @import '~dragula/dist/dragula.css';
+@import '~@angular/material/core/theming/all-theme';
+@import '~@covalent/core/theming/all-theme';
+
+// (optional) Additional themes
+// @import '~@covalent/markdown/markdown-theme';
+// @import '~@covalent/highlight/highlight-theme';
+
+@include mat-core();
+
+// $primary: mat-palette($mat-orange, 800);
+// $accent:  mat-palette($mat-light-blue, 600, A100, A400);
+// $warn:    mat-palette($mat-red, 600);
+
+$primary: mat-palette($mat-blue-grey, 700);
+$accent:  mat-palette($mat-deep-orange, 500, A100, A400);
+$warn:    mat-palette($mat-red, 600);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+@include covalent-theme($theme);
+
+// (optional) Additional themes
+// @include covalent-markdown-theme($theme);
+// @include covalent-highlight-theme();
+.example-fill-remaining-space {
+  // This fills the remaining space, by using flexbox. 
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+}
+// html, body, material-app, mat-sidenav-container, .my-content {
+//   margin: 0;
+//   width: 100%;
+//   height: 100%;
+// }
+/* ------------------------------------------------------------------------------- */
+$foreground: map-get($theme, foreground);
+$background: map-get($theme, background);
+
+// Apply theme for this app
+
+// NGX Charts
+[ngx-charts-axis-label] text {
+    fill: mat-color($foreground, secondary-text);
+}
+.tick text {
+    fill: mat-color($foreground, disabled);
+}
+.gridline-path {
+    &.gridline-path-horizontal,
+    &.gridline-path-vertical {
+        stroke: rgba(black, 0.06);
+    }
+}
+.legend-title-text {
+    color: mat-color($foreground, secondary-text);
+}

@@ -1,0 +1,13 @@
+<td-layout #layout title="Sidenav Title" logo="assets:logo">
+  <md-nav-list menu-items>
+    <a *ngFor="let item of routes" md-list-item [routerLink]="[item.route]" (click)="layout.close()">
+      <md-icon md-list-icon>{{item.icon}}</md-icon>
+      {{item.title}}
+    </a>
+  </md-nav-list>
+  <td-layout-nav title="Toolbar Titlse" logo="assets:logo">
+    <td-layout-card-over title="ريادة الفخامة" subtitle="Card subtitle">
+      <router-outlet></router-outlet>
+    </td-layout-card-over>
+  </td-layout-nav>
+</td-layout>
